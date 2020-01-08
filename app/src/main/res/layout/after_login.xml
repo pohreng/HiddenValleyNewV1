@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/afterLogin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="20dp"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical">
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/switches" />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+               android:layout_marginLeft="20dp"
+               android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/current_profile"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/profilepic1" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/welcome"
+                            android:fontFamily="fantasy"
+                            android:textSize="20dp"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/welcome" />
+
+                        <TextView
+                            android:id="@+id/afterUsername"
+                            android:fontFamily="fantasy"
+                            android:textSize="16dp"
+                            android:includeFontPadding="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
+                            android:layout_weight="1"
+                            android:text="" />
+                    </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:orientation="vertical"
+                    android:layout_marginTop="50dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:id="@+id/letterIMG"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/example" />
+
+                    <ImageView
+                        android:id="@+id/matchIMG"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/example" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <ImageView
+                        android:id="@+id/calculateIMG"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/example" />
+                    <ImageView
+                        android:id="@+id/numberIMG"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/example" />
+                </LinearLayout>
+            </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

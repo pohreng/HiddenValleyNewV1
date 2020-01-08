@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">HiddenValleyV3</string>
+    <string name="welcome">WELCOME</string>
+    <string name="points">POINTS</string>
+    <string name="setting">SETTING</string>
+    <string name="change_password">Change Password</string>
+    <string name="reset_points">Reset Points</string>
+    <string name="change_language">CHANGE LANGUAGE</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="back">BACK</string>
+    <string name="star">STAR</string>
+    <string name="answer">ANSWER</string>
+    <string name="streak">Streak:</string>
+    <string name="quit">QUIT</string>
+    <string name="roll">ROLL</string>
+    <string name="log_in">LOG IN</string>
+    <string name="switches">Learning Mode</string>
+    <string name="registration">Registration</string>
+    <string name="confirm">CONFIRM</string>
+    <string name="new_password">New Password</string>
+    <string name="old_password">Old Password</string>
+    <string name="log_in_first">Please Log In First</string>
+    <string name="text_log_in_first">LOG IN AGAIN</string>
+    <string name="text_incorect_second_pass">Incorrect Second Password</string>
+    <string name="username_been_used">Username Been Used</string>
+    <string name="username_cant_be_empty">Username cannot be empty</string>
+    <string name="login_success">Login Successful</string>
+    <string name="username_pass_wrong">Username Or Password Incorrect</string>
+    <string name="please_enter_ans">Please Enter Answer</string>
+    <string name="ans_correct">Answer Correct</string>
+    <string name="wrong_answer">Wrong Answer</string>
+    <string name="change_success">Change Successful,Login Again</string>
+    <string name="second_pass_incorect">Second Password Incorrect</string>
+    <string name="wrong_old_pass">Wrong Old Password</string>
+    <string name="choose_lang">Choose Language</string>
+    <string name="confirmation_reset">Confirm Reset?</string>
+    <string name="point_reset">POINT RESET</string>
+    <string name="confirmation">Confirm</string>
+    <string name="cancelation">Cancel</string>
+
+</resources>

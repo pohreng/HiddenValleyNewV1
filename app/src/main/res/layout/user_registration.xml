@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/loginbackground"
+    android:id="@+id/registration123">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="250dp">
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="311dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/username"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/pass"
+            android:layout_width="311dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="311dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/confirm_password"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/sign_button"
+            android:layout_width="234dp"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:text="@string/sign_up" />
+
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="174dp"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:text="@string/back" />
+    </LinearLayout>
+
+</LinearLayout>

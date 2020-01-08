@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/afterLogin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="20dp"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/current_profile12"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/profile_pic" />
+
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/welcome"
+                    android:fontFamily="fantasy"
+                    android:textSize="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/welcome" />
+
+                <TextView
+                    android:id="@+id/current_username1"
+                    android:fontFamily="fantasy"
+                    android:textSize="16dp"
+                    android:includeFontPadding="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_weight="1"
+                    android:text="" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp" >
+
+            <Button
+                android:id="@+id/btn_point"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_round_edge"
+                android:fontFamily="fantasy"
+                android:text="@string/points" />
+            <Button
+                android:id="@+id/btn_setting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="fantasy"
+                android:background="@drawable/btn_round_edge"
+                android:text="@string/setting"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:fontFamily="fantasy"
+                android:gravity="center"
+                android:id="@+id/current_points"
+                android:textSize="100dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

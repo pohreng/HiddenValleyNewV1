@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HiddenValleyV3</string>
+    <string name="welcome">SELAMAT</string>
+    <string name="points">POINTS</string>
+    <string name="setting">SETTING</string>
+    <string name="change_password">Tukar kata laluan</string>
+    <string name="reset_points">Tetapkan semula Mata</string>
+    <string name="change_language">TUKAR BAHASA</string>
+    <string name="sign_out">LOG KELUAR</string>
+    <string name="username">Nama pengguna</string>
+    <string name="password">Kata laluan</string>
+    <string name="confirm_password">Sahkan Kata Laluan</string>
+    <string name="sign_up">DAFTAR</string>
+    <string name="back">KEMBALI</string>
+    <string name="star">STAR</string>
+    <string name="answer">JAWAPAN</string>
+    <string name="streak">Streak:</string>
+    <string name="quit">KELUAR</string>
+    <string name="roll">GULUNG</string>
+    <string name="log_in">LOG MASUK</string>
+    <string name="switches">Mod Pembelajaran</string>
+    <string name="registration">Pendaftaran</string>
+    <string name="confirm">Mengesahkan</string>
+    <string name="log_in_first">SILA LOG MASUK DULU</string>
+    <string name="text_log_in_first">LOG MASUK SEKALI</string>
+    <string name="text_incorect_second_pass">Kata Laluan Tak Sama</string>
+    <string name="username_been_used">Nama Telah Diguna</string>
+    <string name="username_cant_be_empty">Nama Tak Boleh Kosong</string>
+    <string name="login_success">LOG MASUK</string>
+    <string name="username_pass_wrong">Nama Atau Kata Laluan Salah</string>
+    <string name="please_enter_ans">Sila Jawap</string>
+    <string name="ans_correct">Jawapan Betul</string>
+    <string name="wrong_answer">Jawapan salah</string>
+    <string name="change_success">Telah Tukar, Log Masuk Semula</string>
+    <string name="second_pass_incorect">Kata Laluan kedua Salah</string>
+    <string name="wrong_old_pass">Kata Laluan Lama Salah</string>
+    <string name="choose_lang">Pilih Bahasa</string>
+    <string name="confirmation_reset">Sahkan Reset?</string>
+    <string name="point_reset">RESET POINT</string>
+    <string name="confirmation">Sahkan</string>
+    <string name="cancelation">Batal</string>
+
+</resources>

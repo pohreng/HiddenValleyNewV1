@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center_vertical"
+    >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+                <ImageView
+                    android:id="@+id/star_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    tools:srcCompat="@drawable/star0" />
+        </LinearLayout>
+
+        <Button
+                    android:id="@+id/num_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/star" />
+
+                <EditText
+                    android:layout_gravity="center_horizontal"
+                    android:hint="@string/answer"
+                    android:gravity="center"
+                    android:id="@+id/num_answer"
+                    android:layout_width="279dp"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <LinearLayout
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:layout_width="100dp"
+                    android:layout_height="20dp">
+                        <TextView
+                            android:fontFamily="fantasy"
+                            android:textSize="12dp"
+                            android:layout_width="1dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/streak" />
+                        <TextView
+                            android:gravity="right"
+                            android:id="@+id/num_game_streak"
+                            android:layout_width="1dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="fantasy"
+                            android:textSize="12dp"
+                            android:text="0"
+                            />
+                </LinearLayout>
+                <Button
+                    android:id="@+id/ans_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/answer" />
+                <Button
+                    android:id="@+id/backOrNext_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/quit" />
+
+
+</LinearLayout>

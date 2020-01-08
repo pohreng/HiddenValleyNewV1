@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/all_game"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:fontFamily="fantasy"
+            android:background="@drawable/btn_round_edge">
+
+            <Button
+                android:id="@+id/back_home"
+                android:fontFamily="fantasy"
+                android:textSize="17dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hidden Valley" />
+        </LinearLayout>
+
+         <FrameLayout
+                 android:id="@+id/fragment_holder"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"/>
+
+    </LinearLayout>
+    <include
+        android:id="@+id/after_login"
+        android:visibility="gone"
+        layout="@layout/after_login"/>
+
+</RelativeLayout>
