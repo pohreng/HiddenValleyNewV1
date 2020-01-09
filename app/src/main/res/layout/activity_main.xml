@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+    android:background="@drawable/under_water_img"
     >
     <LinearLayout
         android:id="@+id/main123"
@@ -19,12 +20,13 @@
             android:orientation="horizontal"
             android:layout_gravity="center_vertical"
             android:padding="20dp">
-                    <ImageView
-                        android:id="@+id/logo"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toStartOf="@+id/login_button"
-                        android:src="@drawable/logo"/>
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="148dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/logo"
+                app:layout_constraintEnd_toStartOf="@+id/login_button" />
                     <LinearLayout
                         android:layout_width="150dp"
                         android:layout_height="100dp"
@@ -65,7 +67,7 @@
                         android:layout_height="120dp"
                         android:layout_marginTop="30dp"
                         android:layout_weight="1"
-                        android:src="@drawable/example" />
+                        android:src="@drawable/speeling_logo" />
 
                     <ImageView
                         android:id="@+id/img3"
@@ -73,7 +75,7 @@
                         android:layout_height="120dp"
                         android:layout_marginTop="30dp"
                         android:layout_weight="1"
-                        android:src="@drawable/example" />
+                        android:src="@drawable/memory_logo" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -87,7 +89,7 @@
                         android:layout_height="120dp"
                         android:layout_marginTop="30dp"
                         android:layout_weight="1"
-                        android:src="@drawable/example" />
+                        android:src="@drawable/num_logo" />
                     <ImageView
                         android:id="@+id/img1"
                         android:layout_width="120dp"

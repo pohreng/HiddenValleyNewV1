@@ -41,5 +41,10 @@
     <string name="point_reset">POINT RESET</string>
     <string name="confirmation">Confirm</string>
     <string name="cancelation">Cancel</string>
+    <string name="point_per_question">Point Of Question :</string>
+    <string name="new_game">New Game</string>
+    <string name="number_of_question">Number Of Question</string>
+    <string name="next_question">Next Question</string>
+    <string name="wrong_ans">Wrong Answer</string>
 
 </resources>

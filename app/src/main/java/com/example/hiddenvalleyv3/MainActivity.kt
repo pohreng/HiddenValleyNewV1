@@ -6,7 +6,9 @@ import android.content.Context
 import android.content.res.Configuration
 import android.content.res.Resources
 import android.database.sqlite.SQLiteDatabase
+import android.media.Image
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.text.AlteredCharSequence
 import android.view.View
@@ -20,7 +22,11 @@ import kotlinx.android.synthetic.main.after_login.*
 import kotlinx.android.synthetic.main.cal_game.*
 import kotlinx.android.synthetic.main.change_password.*
 import kotlinx.android.synthetic.main.game.*
+import kotlinx.android.synthetic.main.letter_game.*
 import kotlinx.android.synthetic.main.login.*
+import kotlinx.android.synthetic.main.match_game.*
+import kotlinx.android.synthetic.main.match_game.match_game_btn
+import kotlinx.android.synthetic.main.match_game.totalPointIncreased
 import kotlinx.android.synthetic.main.number_game.*
 import kotlinx.android.synthetic.main.user_profile.*
 import kotlinx.android.synthetic.main.user_registration.*
@@ -36,10 +42,9 @@ import java.util.*
 class  MainActivity : AppCompatActivity() {
 
     lateinit var handler: AccDatabase
-    lateinit var diceImage1 : ImageView
-    lateinit var diceImage2 : ImageView
-    lateinit var starImage : ImageView
-
+    lateinit var diceImage1: ImageView
+    lateinit var diceImage2: ImageView
+    lateinit var starImage: ImageView
     //var manager = supportFragmentManager
     //val animationIn = AnimationUtils.loadAnimation(this,R.anim.zoom_in)
     //val animationOut = AnimationUtils.loadAnimation(this,R.anim.zoom_out)
@@ -63,30 +68,30 @@ class  MainActivity : AppCompatActivity() {
         val clickerCal1 = findViewById<ImageView>(R.id.img4)
 
 
-        clickerLetter1.setOnClickListener{
+        clickerLetter1.setOnClickListener {
             Toast.makeText(this, getString(R.string.log_in_first), Toast.LENGTH_SHORT).show()
         }
-        clickerNumber1.setOnClickListener{
+        clickerNumber1.setOnClickListener {
             Toast.makeText(this, getString(R.string.log_in_first), Toast.LENGTH_SHORT).show()
         }
-        clickerMatch1.setOnClickListener{
+        clickerMatch1.setOnClickListener {
             Toast.makeText(this, getString(R.string.log_in_first), Toast.LENGTH_SHORT).show()
         }
-        clickerCal1.setOnClickListener{
+        clickerCal1.setOnClickListener {
             Toast.makeText(this, getString(R.string.log_in_first), Toast.LENGTH_SHORT).show()
         }
 
 
-        registration_button.setOnClickListener{
+        registration_button.setOnClickListener {
             showUserReg()
         }
 
-        login_button.setOnClickListener{
+        login_button.setOnClickListener {
             showLogin()
         }
 
         sign_button.setOnClickListener {
-            if(username.text.toString().isNotEmpty()){
+            if (username.text.toString().isNotEmpty()) {
                 if (handler.verifyUsername(username.text.toString())) {
                     if (pass.text.toString().isNotEmpty() && pass.text.toString() == password.text.toString()) {
                         handler.insertUserData(username.text.toString(), pass.text.toString())
@@ -101,19 +106,19 @@ class  MainActivity : AppCompatActivity() {
                 Toast.makeText(this, getString(R.string.username_cant_be_empty), Toast.LENGTH_SHORT).show()
         }
 
-        back_button.setOnClickListener{
+        back_button.setOnClickListener {
             showHome()
         }
-        back_button1.setOnClickListener{
+        back_button1.setOnClickListener {
             showHome()
         }
-        login.setOnClickListener{
+        login.setOnClickListener {
             login()
         }
     }
 
-    private fun login(){
-        if(handler.userPresent(login_username.text.toString(),login_pass.text.toString())) {
+    private fun login() {
+        if (handler.userPresent(login_username.text.toString(), login_pass.text.toString())) {
             Toast.makeText(this, getString(R.string.login_success), Toast.LENGTH_SHORT).show()
 
             var data = handler.retrieveData(login_username.text.toString())
@@ -121,7 +126,7 @@ class  MainActivity : AppCompatActivity() {
             afterLoginPages()
 
             afterUsername.text = ""
-            for(i in 0..(data.size-1)){
+            for (i in 0..(data.size - 1)) {
                 afterUsername.append(data.get(i).username)
             }
             val clickerProfile = findViewById<ImageView>(R.id.current_profile)
@@ -130,46 +135,56 @@ class  MainActivity : AppCompatActivity() {
             val clickerMatch = findViewById<ImageView>(R.id.matchIMG)
             val clickerCal = findViewById<ImageView>(R.id.calculateIMG)
 
-            clickerProfile.setOnClickListener{
+            clickerProfile.setOnClickListener {
                 profile()
             }
-            clickerLetter.setOnClickListener{
-                showLetGame()
+            clickerLetter.setOnClickListener {
+                letterGame()
             }
-            clickerNumber.setOnClickListener{
+            clickerNumber.setOnClickListener {
                 showNumGame()
+                backOrNext_number.setOnClickListener {
+                    afterLoginPages()
+                }
                 starImage = findViewById(R.id.star_img)
                 starImage.setImageResource(R.drawable.star0)
-                num_btn.setOnClickListener{
+
+                num_btn.setOnClickListener {
                     rollStar()
                 }
             }
-            clickerMatch.setOnClickListener{
-                showMatchGame()
+            clickerMatch.setOnClickListener {
+
+                matchingGame()
+
+                match_game_btn.setOnClickListener {
+                    afterLoginPages()
+                }
             }
-            clickerCal.setOnClickListener{
+            clickerCal.setOnClickListener {
                 showCalGame()
+                backOrNext.setOnClickListener {
+                    afterLoginPages()
+                }
                 diceImage1 = findViewById(R.id.dice_img1)
                 diceImage2 = findViewById(R.id.dice_img2)
 
                 diceImage1.setImageResource(R.drawable.dice_1)
                 diceImage2.setImageResource(R.drawable.dice_1)
-
-                roll_button.setOnClickListener{
+                roll_button.setOnClickListener {
                     rollDice()
                 }
             }
-        }else {
+        } else {
             Toast.makeText(this, getString(R.string.username_pass_wrong), Toast.LENGTH_SHORT).show()
             showLogin()
         }
     }
 
+    private fun rollDice() {
 
-    private fun rollDice(){
-
-        val randomInt1 = Random().nextInt(6)+1
-        val randomInt2 = Random().nextInt(6)+1
+        val randomInt1 = Random().nextInt(6) + 1
+        val randomInt2 = Random().nextInt(6) + 1
 
         val dice1 = when (randomInt1) {
             1 -> R.drawable.dice_1
@@ -190,38 +205,35 @@ class  MainActivity : AppCompatActivity() {
             else -> R.drawable.dice_6
         }
         diceImage2.setImageResource(dice2)
-        if(cal_answer.text.toString().isNotEmpty()) {
+        if (cal_answer.text.toString().isNotEmpty()) {
             answer_calculation.setOnClickListener {
                 countTotal(randomInt1, randomInt2)
             }
-        }else{
+        } else {
             Toast.makeText(this, getString(R.string.please_enter_ans), Toast.LENGTH_SHORT).show()
         }
-        backOrNext.setOnClickListener{
-            afterLoginPages()
-        }
     }
-    private fun countTotal(num1 : Int,num2 : Int){
+
+    private fun countTotal(num1: Int, num2: Int) {
         val ans = cal_answer.text.toString().toInt()
         val streak = cal_game_streak.text.toString().toInt() + 1
         val total = num1 + num2
-        if(ans == total) {
+        if (ans == total) {
             Toast.makeText(this, getString(R.string.ans_correct), Toast.LENGTH_SHORT).show()
             val plusPoints = 10 + streak
-            handler.increasePoint(login_username.text.toString(),plusPoints.toString())
+            handler.increasePoint(login_username.text.toString(), plusPoints.toString())
             val newStreak = streak + 0
             cal_game_streak.text = newStreak.toString()
             rollDice()
-        }
-        else {
+        } else {
             val newStreak = 0
             cal_game_streak.text = newStreak.toString()
             Toast.makeText(this, getString(R.string.wrong_answer), Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun rollStar(){
-        val randomInt1 = Random().nextInt(8)+1
+    private fun rollStar() {
+        val randomInt1 = Random().nextInt(8) + 1
 
         val star = when (randomInt1) {
             1 -> R.drawable.star1
@@ -235,34 +247,32 @@ class  MainActivity : AppCompatActivity() {
         }
         starImage.setImageResource(star)
 
-        if(num_answer.text.toString().isNotEmpty()) {
+        if (num_answer.text.toString().isNotEmpty()) {
             ans_number.setOnClickListener {
                 countTotalStar(randomInt1)
             }
-        }else{
+        } else {
             Toast.makeText(this, getString(R.string.please_enter_ans), Toast.LENGTH_SHORT).show()
         }
-        backOrNext_number.setOnClickListener{
-            afterLoginPages()
-        }
     }
-    private fun countTotalStar(num1 : Int){
+
+    private fun countTotalStar(num1: Int) {
         val ans = num_answer.text.toString().toInt()
         val streak = num_game_streak.text.toString().toInt() + 1
-        if(ans == num1) {
+        if (ans == num1) {
             Toast.makeText(this, getString(R.string.ans_correct), Toast.LENGTH_SHORT).show()
             val plusPoints = 10 + streak
-            handler.increasePoint(login_username.text.toString(),plusPoints.toString())
+            handler.increasePoint(login_username.text.toString(), plusPoints.toString())
             val newStreak = streak + 0
             num_game_streak.text = newStreak.toString()
             rollStar()
-        }
-        else {
+        } else {
             val newStreak = 0
             num_game_streak.text = newStreak.toString()
             Toast.makeText(this, getString(R.string.wrong_answer), Toast.LENGTH_SHORT).show()
         }
     }
+
 
     /*private fun loopLogin(){
     var data = handler.retrieveData(login_username.text.toString())
@@ -354,6 +364,120 @@ class  MainActivity : AppCompatActivity() {
         profilePic.setImageResource(newProfilePic)
     }*/
 
+
+    private fun matchingGame() {
+        showMatchGame()
+
+        val imgArray: MutableList<Int> = mutableListOf(R.drawable.img_goat_101, R.drawable.img_102,
+                R.drawable.img_103, R.drawable.img_104, R.drawable.img_105, R.drawable.img_106,
+                R.drawable.img_goat_101, R.drawable.img_102,
+                R.drawable.img_103, R.drawable.img_104, R.drawable.img_105, R.drawable.img_106)
+
+        val buttons: Array<Button> = arrayOf(iv_11, iv_12, iv_13, iv_14, iv_21, iv_22, iv_23, iv_24,
+                iv_31, iv_32, iv_33, iv_34)
+
+        for (i in 0..11) {
+            buttons[i].setBackgroundResource(R.drawable.question_img)
+        }
+
+
+        var clicked = 0
+        var counter = 0
+        var lastClicked = 0
+        var firstClicked = 0
+        var countPoint = 5
+
+        imgArray.shuffle()
+        for (i in 0..11) {
+            buttons[i].text = "cardBack"
+            buttons[i].textSize = 0.0F
+            buttons[i].setOnClickListener {
+                if (buttons[i].text == "cardBack" && clicked < 2) {
+                    buttons[i].setBackgroundResource(imgArray[i])
+                    buttons[i].setText(imgArray[i])
+                    if (clicked == 0) {
+                        firstClicked = i
+                    } else if (clicked == 1) {
+                        lastClicked = i
+                    }
+                    clicked++
+                }
+                Handler().postDelayed({
+                    if (clicked == 2) {
+                        if (buttons[firstClicked].text == buttons[lastClicked].text) {
+                            buttons[firstClicked].setBackgroundResource(R.drawable.tick_img)
+                            buttons[lastClicked].setBackgroundResource(R.drawable.tick_img)
+                            clicked = 0
+                            counter++
+                            countPoint++
+                            val newPoints = 10 + (countPoint * 5)
+                            totalPointIncreased.text = newPoints.toString()
+                            handler.increasePoint(login_username.text.toString(), newPoints.toString())
+                            if (counter == 6) {
+                                Toast.makeText(this, getString(R.string.new_game), Toast.LENGTH_SHORT).show()
+                                matchingGame()
+                            }
+                        } else {
+                            buttons[lastClicked].setBackgroundResource(R.drawable.question_img)
+                            buttons[firstClicked].setBackgroundResource(R.drawable.question_img)
+                            buttons[firstClicked].text = "cardBack"
+                            buttons[lastClicked].text = "cardBack"
+                            clicked = 0
+                            countPoint = 5
+                            val newPoints = 10 + countPoint
+                            totalPointIncreased.text = newPoints.toString()
+                        }
+                    }
+                }, 1000)
+            }
+        }
+    }
+
+   private fun letterGame() {
+        showLetGame()
+
+       var image1 = R.drawable.lion
+       var image2 = R.drawable.pegguin
+       var image3 = R.drawable.snake
+       var image4 = R.drawable.monkey
+       var image5 = R.drawable.goat
+       var image6 = R.drawable.fish
+
+       val question: MutableList<Questions> = mutableListOf(
+                Questions(image1,"lion"),
+                Questions(image2,"pengg"),
+                Questions(image3,"snake"),
+                Questions(image4,"monkey"),
+                Questions(image5,"goat"),
+                Questions(image6,"fish")
+       )
+
+              val btn_ans: MutableList<Int> = mutableListOf(R.drawable.b_img, R.drawable.s_img, R.drawable.f_img,
+               R.drawable.t_img, R.drawable.g_img, R.drawable.m_img, R.drawable.k_img, R.drawable.i_img,
+               R.drawable.n_img)
+
+        val buttons: Array<Button> = arrayOf(ans_a, ans_b, ans_c, ans_d, ans_e, ans_f, ans_g, ans_h, ans_i)
+
+       var o = 0
+       question.shuffle()
+       start_question.setBackgroundResource(question[0].image)
+            for (i in 0..8) {
+                buttons[i].textSize = 0.0F
+                buttons[i].setOnClickListener{
+                    if (buttons[i].text == question[0].answer){
+                        Toast.makeText(this,getString(R.string.next_question), Toast.LENGTH_SHORT).show()
+                        letterGame()
+                    }else{
+                        Toast.makeText(this,getString(R.string.wrong_ans), Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+
+       letter_game_back.setOnClickListener{
+           afterLoginPages()
+       }
+ }
+
     private fun changePassword() {
         showChangePass()
         confirm.setOnClickListener {
@@ -423,11 +547,13 @@ class  MainActivity : AppCompatActivity() {
         editor.putString("My_Lang", Lang)
         editor.apply()
     }
+
     /*private fun loadLocate(){
         val sharedPreferences = getSharedPreferences("Settings", Activity.MODE_PRIVATE)
         val language = sharedPreferences.getString("My_Lang", "")
         setLocate(language)
     }*/
+
     private fun profile(){
         var data1 = handler.retrieveData(login_username.text.toString())
         showProfile()
@@ -616,15 +742,15 @@ class  MainActivity : AppCompatActivity() {
         match_game.visibility=View.VISIBLE
         num_game.visibility=View.GONE
         cal_game.visibility=View.GONE
-        match_game.visibility=View.GONE
+
         registration_layout.visibility=View.GONE
         login_layout.visibility=View.GONE
         main123.visibility=View.GONE
+
         afterLogin_layout.visibility=View.GONE
         user_profile.visibility=View.GONE
         user_setting.visibility=View.GONE
         change_password_page.visibility=View.GONE
-
     }
     private fun showCalGame(){
         let_game.visibility=View.GONE

@@ -40,5 +40,10 @@
     <string name="point_reset">RESET POINT</string>
     <string name="confirmation">Sahkan</string>
     <string name="cancelation">Batal</string>
+    <string name="point_per_question">Maka Soalan Ini :</string>
+    <string name="new_game">GAME BARU</string>
+    <string name="number_of_question">Number Of Question</string>
+    <string name="next_question">Next Question</string>
+    <string name="wrong_ans">Wrong Answer</string>
 
 </resources>
