@@ -42,8 +42,7 @@
     <string name="cancelation">取消</string>
     <string name="point_per_question">该题分数 :</string>
     <string name="new_game">新的一局</string>
-    <string name="number_of_question">Number Of Question</string>
-    <string name="next_question">Next Question</string>
-    <string name="wrong_ans">Wrong Answer</string>
+    <string name="next_question">下一题</string>
+    <string name="wrong_ans">答案错误</string>
 
 </resources>

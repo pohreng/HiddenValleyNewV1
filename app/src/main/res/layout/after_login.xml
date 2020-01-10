@@ -75,7 +75,7 @@
                         android:layout_height="120dp"
                         android:layout_marginTop="30dp"
                         android:layout_weight="1"
-                        android:src="@drawable/example" />
+                        android:src="@drawable/speeling_logo" />
 
                     <ImageView
                         android:id="@+id/matchIMG"
@@ -83,7 +83,7 @@
                         android:layout_height="120dp"
                         android:layout_marginTop="30dp"
                         android:layout_weight="1"
-                        android:src="@drawable/example" />
+                        android:src="@drawable/memory_logo" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -97,7 +97,7 @@
                         android:layout_height="120dp"
                         android:layout_marginTop="30dp"
                         android:layout_weight="1"
-                        android:src="@drawable/example" />
+                        android:src="@drawable/num_logo" />
                     <ImageView
                         android:id="@+id/numberIMG"
                         android:layout_width="120dp"

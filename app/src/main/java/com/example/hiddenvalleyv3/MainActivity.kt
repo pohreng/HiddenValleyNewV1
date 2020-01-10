@@ -452,13 +452,8 @@ class  MainActivity : AppCompatActivity() {
                 Questions(image6,"fish")
        )
 
-              val btn_ans: MutableList<Int> = mutableListOf(R.drawable.b_img, R.drawable.s_img, R.drawable.f_img,
-               R.drawable.t_img, R.drawable.g_img, R.drawable.m_img, R.drawable.k_img, R.drawable.i_img,
-               R.drawable.n_img)
-
         val buttons: Array<Button> = arrayOf(ans_a, ans_b, ans_c, ans_d, ans_e, ans_f, ans_g, ans_h, ans_i)
 
-       var o = 0
        question.shuffle()
        start_question.setBackgroundResource(question[0].image)
             for (i in 0..8) {
@@ -466,6 +461,9 @@ class  MainActivity : AppCompatActivity() {
                 buttons[i].setOnClickListener{
                     if (buttons[i].text == question[0].answer){
                         Toast.makeText(this,getString(R.string.next_question), Toast.LENGTH_SHORT).show()
+                        val newPoints = 10
+                        totalPointIncreased.text = newPoints.toString()
+                        handler.increasePoint(login_username.text.toString(), newPoints.toString())
                         letterGame()
                     }else{
                         Toast.makeText(this,getString(R.string.wrong_ans), Toast.LENGTH_SHORT).show()
