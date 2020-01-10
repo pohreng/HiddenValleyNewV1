@@ -13,7 +13,10 @@
         android:layout_gravity="center_vertical"
         android:orientation="vertical">
         <Switch
-            android:id="@+id/switch1"
+            android:gravity="right"
+            android:textSize="20dp"
+            android:padding="3dp"
+            android:id="@+id/learning_switch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/switches" />

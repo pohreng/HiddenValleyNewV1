@@ -13,10 +13,8 @@ import android.support.v7.app.AppCompatActivity
 import android.text.AlteredCharSequence
 import android.view.View
 import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
+import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.after_login.*
 import kotlinx.android.synthetic.main.cal_game.*
@@ -129,12 +127,17 @@ class  MainActivity : AppCompatActivity() {
             for (i in 0..(data.size - 1)) {
                 afterUsername.append(data.get(i).username)
             }
+            val learning = findViewById<Switch>(R.id.learning_switch)
             val clickerProfile = findViewById<ImageView>(R.id.current_profile)
             val clickerLetter = findViewById<ImageView>(R.id.letterIMG)
             val clickerNumber = findViewById<ImageView>(R.id.numberIMG)
             val clickerMatch = findViewById<ImageView>(R.id.matchIMG)
             val clickerCal = findViewById<ImageView>(R.id.calculateIMG)
 
+            learning.setOnClickListener{
+                /*initRecyclerView()
+                addDataSet()*/
+            }
             clickerProfile.setOnClickListener {
                 profile()
             }
@@ -364,6 +367,21 @@ class  MainActivity : AppCompatActivity() {
         profilePic.setImageResource(newProfilePic)
     }*/
 
+    /*private fun addDataSet(){
+        val data = dataSource.createDataSet()
+        listAdapter.submitList(data)
+    }
+
+    private fun initRecyclerView(){
+        recycler_view.apply {
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            val topSpacingDecoration = TopSpacingItemDecoration( 30)
+            addItemDecoration(topSpacingDecoration)
+            listAdapter = RecyclerAdapter()
+            adapter = listAdapter
+        }
+
+    }*/
 
     private fun matchingGame() {
         showMatchGame()
@@ -776,4 +794,5 @@ class  MainActivity : AppCompatActivity() {
         user_setting.visibility=View.GONE
         change_password_page.visibility=View.VISIBLE
     }
+
 }
